@@ -78,6 +78,16 @@ document.addEventListener('DOMContentLoaded', function() {
         showFact(currentFact);
     }, 5000);
 
+    // Typing indicator logic
+    const typingIndicator = document.getElementById('typing-indicator');
+    function showTypingIndicator(show) {
+        if (show) {
+            typingIndicator.classList.add('active');
+        } else {
+            typingIndicator.classList.remove('active');
+        }
+    }
+
     function appendMessage(sender, text) {
         const msgDiv = document.createElement('div');
         msgDiv.classList.add('message', sender);
@@ -107,6 +117,7 @@ document.addEventListener('DOMContentLoaded', function() {
             sendSound.currentTime = 0;
             sendSound.play();
         }
+        showTypingIndicator(true);
         fetch('/chat', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -114,9 +125,11 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .then(res => res.json())
         .then(data => {
+            showTypingIndicator(false);
             appendMessage('bot', data.response);
         })
         .catch(() => {
+            showTypingIndicator(false);
             appendMessage('bot', 'Sorry, there was an error connecting to the server.');
         });
     }

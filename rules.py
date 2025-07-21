@@ -1,5 +1,28 @@
 def get_bot_response(message):
     msg = message.lower()
+    # Greetings
+    greetings = [
+        'hi', 'hello', 'hey', 'greetings', 'good morning', 'good afternoon', 'good evening',
+        'namaste', 'namaskar', 'salaam', 'yo', 'what\'s up', 'wassup', 'howdy', 'sup',
+        'how are you', 'how r u', 'how are u', 'how are you doing', 'how is it going',
+        'good day', 'bonjour', 'hola', 'shalom', 'ciao', 'konnichiwa', 'annyeong', 'privet'
+    ]
+    for greet in greetings:
+        if greet in msg:
+            import random
+            responses = [
+                'Hello! How can I assist you today?',
+                'Hi there! How can I help you with civic information?',
+                'Greetings! Ask me anything about government schemes or laws.',
+                'Hey! I\'m here to help you with your queries.',
+                'Namaste! How can I serve you today?',
+                'Good to see you! What would you like to know?',
+                'Hello! Feel free to ask about your rights or any public scheme.',
+                'Hi! I\'m your Civic Chat Bot. How can I help?',
+                'Hey there! Need info on government services or laws?',
+                'Hello! I\'m here to empower you with information.'
+            ]
+            return random.choice(responses)
     # Voting rights & Election
     if 'vote' in msg or 'voting' in msg:
         return 'The legal voting age in India is 18 years. Every citizen above 18 has the right to vote. To register, visit the National Voters Service Portal (nvsp.in).'
@@ -98,5 +121,73 @@ def get_bot_response(message):
         return 'The Preamble to the Constitution of India declares India to be a Sovereign, Socialist, Secular, Democratic Republic and aims to secure justice, liberty, equality, and fraternity for its citizens.'
     if 'article' in msg:
         return 'The Constitution of India has 448 articles in 25 parts. Please specify the article number for details.'
+    # More Government Schemes
+    if 'nrega' in msg or 'mnrega' in msg or 'mahatma gandhi national rural employment guarantee' in msg:
+        return 'MGNREGA guarantees 100 days of wage employment per year to rural households in India.'
+    if 'sukanya samriddhi' in msg:
+        return 'Sukanya Samriddhi Yojana is a savings scheme for the girl child, offering high interest and tax benefits.'
+    if 'atal pension' in msg:
+        return 'Atal Pension Yojana is a pension scheme for unorganized sector workers, providing a fixed pension after 60 years.'
+    if 'national pension system' in msg or 'nps' in msg:
+        return 'The National Pension System (NPS) is a voluntary retirement savings scheme for all citizens.'
+    if 'jan aushadhi' in msg:
+        return 'Pradhan Mantri Bhartiya Janaushadhi Pariyojana provides quality medicines at affordable prices through special stores.'
+    if 'stand up india' in msg:
+        return 'Stand Up India facilitates bank loans between 10 lakh and 1 crore to women and SC/ST entrepreneurs.'
+    if 'pradhan mantri suraksha bima' in msg or 'pmsby' in msg:
+        return 'PMSBY is an accident insurance scheme offering coverage for accidental death and disability.'
+    if 'pradhan mantri jeevan jyoti' in msg or 'pmjjby' in msg:
+        return 'PMJJBY is a life insurance scheme for people aged 18-50 years.'
+    # More Voting & Citizenship
+    if 'how to register to vote' in msg or 'register as a voter' in msg:
+        return 'To register as a voter, visit the National Voters Service Portal (nvsp.in) and fill Form 6 online.'
+    if 'who can vote' in msg or 'who is eligible to vote' in msg:
+        return 'Any Indian citizen aged 18 or above is eligible to vote, provided they are registered on the electoral roll.'
+    if 'can nri vote' in msg:
+        return 'NRIs can vote in Indian elections if they are physically present in their constituency on polling day and have registered as voters.'
+    if 'how to get voter id' in msg:
+        return 'You can apply for a Voter ID online at nvsp.in or visit your local electoral office.'
+    if 'how to check name in voter list' in msg:
+        return 'You can check your name in the voter list at nvsp.in or through the Voter Helpline app.'
+    # More Constitution & Rights
+    if 'article 14' in msg:
+        return 'Article 14 guarantees equality before the law and equal protection of the laws within India.'
+    if 'article 19' in msg:
+        return 'Article 19 guarantees six freedoms, including speech, assembly, association, movement, residence, and profession.'
+    if 'article 15' in msg:
+        return 'Article 15 prohibits discrimination on grounds of religion, race, caste, sex, or place of birth.'
+    if 'right to property' in msg:
+        return 'The Right to Property was a fundamental right under Article 31, but is now a legal right under Article 300A.'
+    if 'right to privacy' in msg:
+        return 'The Supreme Court declared the Right to Privacy as a fundamental right under Article 21.'
+    if 'right to vote' in msg:
+        return 'The right to vote is a constitutional right in India, available to all citizens aged 18 and above.'
+    # More Public Law & Civic
+    if 'fir' in msg or 'first information report' in msg:
+        return 'An FIR (First Information Report) is a written document prepared by police when they receive information about a cognizable offence.'
+    if 'traffic rules' in msg or 'traffic law' in msg:
+        return 'Traffic rules in India are governed by the Motor Vehicles Act. Always carry your license, obey signals, and wear a helmet/seatbelt.'
+    if 'how to file rti' in msg or 'file rti' in msg:
+        return 'To file an RTI, write your query to the Public Information Officer of the concerned department or use the online RTI portal.'
+    if 'how to file complaint' in msg or 'public grievance' in msg:
+        return 'You can file a public grievance at pgportal.gov.in or approach the relevant government office.'
+    if 'public duty' in msg or 'civic duty' in msg:
+        return 'Civic duties include obeying laws, paying taxes, voting, helping others, and respecting the rights of others.'
+    if 'fundamental duties' in msg:
+        return 'Fundamental Duties are listed in Article 51A of the Constitution and include respecting the Constitution, national flag, and anthem, and promoting harmony.'
+    if 'public service commission' in msg or 'psc' in msg:
+        return 'Public Service Commissions (UPSC, State PSCs) conduct exams for recruitment to civil services and other government posts.'
+    if 'municipal corporation' in msg or 'municipality' in msg:
+        return 'Municipal Corporations are local government bodies responsible for civic administration in cities and towns.'
+    if 'gram panchayat' in msg:
+        return 'Gram Panchayat is the basic unit of local self-government in rural India.'
+    if 'mla' in msg:
+        return 'MLA stands for Member of Legislative Assembly, elected by voters of a constituency to the state legislature.'
+    if 'mp' in msg:
+        return 'MP stands for Member of Parliament, elected to the Lok Sabha or Rajya Sabha.'
+    # General fallback for civic/government questions
+    civic_keywords = ['scheme', 'government', 'law', 'constitution', 'voting', 'election', 'public', 'citizen', 'rights', 'duty', 'grievance', 'court', 'parliament', 'assembly', 'ministry', 'commission', 'municipal', 'panchayat', 'service', 'id card', 'passport', 'license', 'certificate', 'tax', 'subsidy', 'benefit', 'reservation', 'quota', 'justice', 'tribunal', 'ombudsman', 'ombudsperson', 'ombudsman', 'governance', 'bureaucracy', 'officer', 'collector', 'magistrate', 'judge', 'police', 'complaint', 'petition', 'appeal', 'audit', 'ombudsman']
+    if any(word in msg for word in civic_keywords):
+        return 'This is a civic/government-related question. Please provide more details or specify your query for a more precise answer. I can help with schemes, laws, rights, duties, government processes, and more.'
     # Default
     return 'Sorry, I can help with queries about government schemes, judiciary, public schemes, and constitutional laws. Please ask a specific question.'
